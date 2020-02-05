@@ -1,0 +1,166 @@
+.header {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+  background: #1976d2;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.headerContent {
+  padding: 0 10px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 56px;
+}
+.btnColor {
+  color: inherit !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 240px;
+  background: red;
+  outline: 0;
+  z-index: 1200;
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sidebarTitle {
+  display: flex;
+  padding: 0px 8px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.itemMenu {
+  padding: 8px 0;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.item:hover {
+  background: #e0e0e096;
+}
+.active {
+  background: #e0e0e096;
+}
+
+.itemIcon {
+  color: rgba(0, 0, 0, 0.54);
+  display: inline-flex;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.itemText {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 4px 0;
+}
+
+.modalMenu {
+  position: fixed;
+  z-index: 1300;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+}
+
+.modalMenuContent {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: -1;
+  position: fixed;
+  align-items: center;
+  touch-action: none;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modalSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 240px;
+  background: red;
+  outline: 0;
+  z-index: 1200;
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.main {
+  margin-left: 240px;
+  margin-top: 56px;
+  padding: 24px;
+}
+
+.btnSync {
+  position: absolute !important;
+  right: 10px;
+  top: 11px;
+  .icon {
+    color: #fff !important;
+  }
+}
+
+.circularColor {
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+  }
+}
