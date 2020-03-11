@@ -27,7 +27,6 @@ class Setting extends React.Component {
                 <p>As an Miracle DropShip Partner, you can expect to deliver high quality and potent products to your customers.  Our Miracle CBD product catalog is continuously growing and currently has over 80 CBD products which vary from oils, pills, edibles, beauty and skincare, pain relief, e-liquids to pet and equestrian products.  You will find that the target audience for our products isvast and is only getting larger as more people are educated on the CBD industry.</p>
                 <h3>How it Works:</h3>
                 <div className="img-center">
-                    <img src={Diagram} alt="diagrams-logo" />
                 </div>
                 <ul>
                     <li>Enroll in the Miracle DropShip Program (see our settings section).</li>
