@@ -45,7 +45,7 @@ class Setting extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.resProfile.status === 200) {
+    if (this.props.resProfile && this.props.resProfile.status === 200) {
       const data = this.props.resProfile.data;
       const phone = data.phoneNumber.trim();
       this.setState({
