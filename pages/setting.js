@@ -254,7 +254,7 @@ class Setting extends React.Component {
         <div className="form-setting">
           <Form
             onSubmit={
-              this.props.resProfile.status === 200
+              this.props.resProfile && this.props.resProfile.status === 200
                 ? this.updateCompany
                 : this.createCompany
             }
@@ -263,7 +263,7 @@ class Setting extends React.Component {
             }}
           >
             <h3>
-              {this.props.resProfile.status === 200
+              {this.props.resProfile && this.props.resProfile.status === 200
                 ? "Update Company"
                 : "Create Company"}
             </h3>
