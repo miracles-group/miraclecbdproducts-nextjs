@@ -267,10 +267,147 @@ class Setting extends React.Component {
                 ? "Update Company"
                 : "Create Company"}
             </h3>
-            
+            <Input
+              name="name"
+              placeholder="Name"
+              type="text"
+              autoFocus
+              value={this.state.company.name}
+              onChange={this.changeValue}
+              validations={[required]}
+            />
+            <Input
+              name="username"
+              placeholder="Username"
+              type="text"
+              value={this.state.company.username}
+              onChange={this.changeValue}
+              validations={[required]}
+              disabled={this.props.resProfile && this.props.resProfile.status === 200 ? true : false}
+            />
+
+            <Input
+              name="email_address"
+              placeholder="Email"
+              type="email"
+              value={this.state.company.email_address}
+              onChange={this.changeValue}
+              validations={[required, email]}
+            />
+            <Input
+              name="phone_number"
+              placeholder="Phone Number"
+              type="number"
+              value={this.state.company.phone_number}
+              onChange={this.changeValue}
+              validations={[required]}
+            />
+
+            <Input
+              name="contact_person"
+              placeholder="Contact Person"
+              type="text"
+              value={this.state.company.contact_person}
+              onChange={this.changeValue}
+              validations={[required]}
+            />
+            <Input
+              name="shop_url"
+              placeholder="Shop url"
+              type="text"
+              value={this.state.company.shop_url}
+              onChange={this.changeValue}
+              validations={[required]}
+            />
+
+            {this.props.resProfile && this.props.resProfile.status !== 200 && (
+              <Input
+                name="password"
+                placeholder="Password"
+                type="password"
+                value={this.state.company.password}
+                onChange={this.changeValue}
+                validations={[required]}
+              />
+            )}
+            {this.props.resProfile && this.props.resProfile.status !== 200 && (
+              <Input
+                name="re_password"
+                placeholder="Comfirm Password"
+                type="password"
+                value={this.state.re_password}
+                onChange={e => this.setState({ re_password: e.target.value })}
+                validations={[required]}
+              />
+            )}
+
+            {this.props.resProfile && this.props.resProfile.status === 200 && (
+              <React.Fragment>
+                <button type="submit">
+                  {this.state.loading ? "Loading..." : "Save"}
+                </button>
+                <a onClick={() => this.setState({ openModal: true })}>
+                  Change your password
+                </a>
+              </React.Fragment>
+            )}
+            {this.props.resProfile && this.props.resProfile.status !== 200 && (
+              <button type="submit">
+                {this.state.loading ? "Loading..." : "Create"}
+              </button>
+            )}
+
+            <CheckButton
+              style={{ display: "none" }}
+              ref={c => {
+                this.checkBtn = c;
+              }}
+            />
           </Form>
         </div>
-        
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.openModal}
+          onClose={() => this.setState({ openModal: false })}
+        >
+          <div className="modal">
+            <h4 id="simple-modal-title">Change your password</h4>
+            <Form onSubmit={this.submitPass}>
+              <Input
+                name="current_password"
+                placeholder="Current Password"
+                type="password"
+                autoFocus
+                onChange={this.changPass}
+                validations={[required]}
+              />
+              <Input
+                name="new_password"
+                placeholder="New Password"
+                type="password"
+                onChange={this.changPass}
+                validations={[required]}
+              />
+              <Input
+                name="confirm_new_password"
+                placeholder="Confirm New Password"
+                type="password"
+                onChange={this.changPass}
+                validations={[required, this.validPass]}
+              />
+              <button type="submit">
+                {this.state.mloading ? "loading..." : "Save"}
+              </button>
+              <CheckButton
+                style={{ display: "none" }}
+                ref={c => {
+                  this.checkPass = c;
+                }}
+              />
+            </Form>
+          </div>
+        </Modal>
       </Layout>
     );
   }
